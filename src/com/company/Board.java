@@ -40,12 +40,13 @@ public class Board {
       for (int j = -1; j <= 1; j++) {
         int nRow = row + i;
         int nCol = col + j;
-        if (i * j != 0 &&
+        if (!(i == 0 && j == 0) &&
             nRow >= 0 && nRow < this.rows &&
             nCol >= 0 && nCol < this.cols) {
           switch (getPoint(nRow, nCol)) {
             case ALIVE:
               result += 1;
+              break;
             case DEAD:
               break;
           }
