@@ -79,19 +79,19 @@ public class Board {
     return nextGen;
   }
 
-  public void evolve(int n, long delay) {
+  public void evolve(int iterations, long delay) {
     System.out.print("\n");
     System.out.print("\033[H\033[2J");
     System.out.flush();
     printBoard();
 
-    if (n > 0) {
+    if (iterations > 0) {
       try {
         Thread.sleep(delay);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
-      nextGen().evolve(n - 1, delay);
+      nextGen().evolve(iterations - 1, delay);
     }
   }
 }
