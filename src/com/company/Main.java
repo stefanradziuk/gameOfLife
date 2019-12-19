@@ -4,36 +4,33 @@ public class Main {
 
   public static void main(String[] args) {
 
-    Board board1 = new Board(10, 10);
-    board1.setPoint(3, 3, State.ALIVE);
-    board1.setPoint(4, 3, State.ALIVE);
-    board1.setPoint(5, 3, State.ALIVE);
+    Board blinker = new Board(10, 10, false);
+    blinker.setPoint(3, 3, State.ALIVE);
+    blinker.setPoint(4, 3, State.ALIVE);
+    blinker.setPoint(5, 3, State.ALIVE);
 
-//    System.out.println(board1.neighbours(4, 2));
-//    System.out.println(board1.neighbours(4, 3));
-//    System.out.println(board1.neighbours(4, 4));
+    Board glider = new Board(10, 10, true);
+    glider.setPoint(1, 0, State.ALIVE);
+    glider.setPoint(2, 1, State.ALIVE);
+    glider.setPoint(0, 2, State.ALIVE);
+    glider.setPoint(1, 2, State.ALIVE);
+    glider.setPoint(2, 2, State.ALIVE);
 
-    try {
-      board1.printBoard();
-      Thread.sleep(1000);
-      System.out.print("\033[H\033[2J");
-      System.out.flush();
-      board1.nextGen().printBoard();
-      Thread.sleep(1000);
-      System.out.print("\033[H\033[2J");
-      System.out.flush();
-      board1.nextGen().nextGen().printBoard();
-      Thread.sleep(1000);
-      System.out.print("\033[H\033[2J");
-      System.out.flush();
-      board1.nextGen().nextGen().nextGen().printBoard();
-      Thread.sleep(1000);
-      System.out.print("\033[H\033[2J");
-      System.out.flush();
-      board1.nextGen().nextGen().nextGen().nextGen().printBoard();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+    Board pentadecathlon = new Board(20, 20, false);
+    pentadecathlon.setPoint(8, 7, State.ALIVE);
+    pentadecathlon.setPoint(10, 7, State.ALIVE);
+    pentadecathlon.setPoint(8, 12, State.ALIVE);
+    pentadecathlon.setPoint(10, 12, State.ALIVE);
+    pentadecathlon.setPoint(9, 5, State.ALIVE);
+    pentadecathlon.setPoint(9, 6, State.ALIVE);
+    pentadecathlon.setPoint(9, 8, State.ALIVE);
+    pentadecathlon.setPoint(9, 9, State.ALIVE);
+    pentadecathlon.setPoint(9, 10, State.ALIVE);
+    pentadecathlon.setPoint(9, 11, State.ALIVE);
+    pentadecathlon.setPoint(9, 13, State.ALIVE);
+    pentadecathlon.setPoint(9, 14, State.ALIVE);
+
+    glider.evolve(1000, 200);
 
   }
 }
